@@ -22,7 +22,7 @@
                 <div class="user-info">
                     آرش زرندی
                     <br />
-                    امتیاز <span>200 <i class="bi bi-coin"></i></span>
+                    امتیاز :  <span>200 <i class="bi bi-coin"></i></span>
                 </div>
             </div>
             <span><img src="" alt="LOGO"></span>
@@ -60,17 +60,17 @@
                     </div>
 
                 </div>
-                <span class="search">
+                <div class="search">
                     <form action="#">
-                        <div class="cntr">
-                            <div class="cntr-innr">
-                                <label class="search-btn" for="inpt_search">
-                                    <input id="inpt_search" type="text" placeholder="" />
-                                </label>
-                            </div>
+                        <div class="container-search">
+                            <input type="text" name="search" placeholder="جستجو ..." class="input" autocomplete="off" />
+
+                            <a href="#" class="btn">
+                                <i class="bi bi-search"></i>
+                            </a>
                         </div>
                     </form>
-                </span>
+                </div>
             </div>
         </div>
     </header>
@@ -78,18 +78,31 @@
         <aside>
             <ul>
                 <li>
-                    <a class="aside-toggle"> <i class="bi bi-list"></i>‍</a>
+                    <a href="" ‍>
+                        <span tooltip="Slide to the left" flow="left"> <i class="bi bi-list"></i>
+                        </span>
+                    </a>
                 </li>
                 <li>
-                    <i class="bi bi-exclamation-circle"></i>
+                    <a href="#">
+                        <span tooltip="Slide to the left" flow="left"> <i class="bi bi-star"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span tooltip="Slide to the left" flow="left"> <i class="bi bi-exclamation-circle"></i>
+                        </span>
+                    </a>
                 </li>
             </ul>
         </aside>
         <section class="content-page">
-            <div class="container">
+            <div class="asvasvsv">
                 <div class="row">
                     <!-- Swiper -->
                     <div class="swiper mySwiper">
+                        <h3 class="pb-3 font-weight-normal">وبینارها</h3>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <a href="#">
@@ -148,6 +161,7 @@
                 <div class="row">
                     <!-- Swiper -->
                     <div class="swiper mySwiper">
+                        <h3 class="pb-3 font-weight-normal">وبینارها</h3>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" data-caption="caption-1">
                                 <a href="#">
@@ -205,66 +219,71 @@
                 </div>
                 <div class="row">
                     <!-- Swiper -->
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <video id="video" controls preload="metadata">
-                                        <source src="video/sintel-short.mp4" type="video/mp4">
-                                        <source src="video/sintel-short.webm" type="video/webm">
-                                        <track label="English" kind="subtitles" srclang="en"
-                                            src="captions/vtt/sintel-en.vtt" default>
-                                        <track label="Deutsch" kind="subtitles" srclang="de"
-                                            src="captions/vtt/sintel-de.vtt">
-                                        <track label="Español" kind="subtitles" srclang="es"
-                                            src="captions/vtt/sintel-es.vtt">
-                                    </video>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
-                                    <figcaption class="figure-caption text-right">A caption for the above image.
-                                    </figcaption>
-
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
-                                    <figcaption class="figure-caption text-right">A caption for the above image.
-                                    </figcaption>
-
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
-                                    <figcaption class="figure-caption text-right">A caption for the above image.
-                                    </figcaption>
-
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
-                                    <figcaption class="figure-caption text-right">A caption for the above image.
-                                    </figcaption>
-
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="#">
-                                    <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
-                                    <figcaption class="figure-caption text-right">A caption for the above image.
-                                    </figcaption>
-
-                                </a>
-                            </div>
+                    <div class="col-12">
+                    <h3 class="pb-3 font-weight-normal">وبینارها</h3>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="video-thumbnail">
+                            <a href="#">
+                                <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
+                                <figcaption class="figure-caption figure-caption-flex text-right">
+                                    <p>متن دلخواه وارد شود</p>
+                                    <div class="d-flex align-items-center">
+                                        <p>10</p>
+                                        <i class="bi bi-coin text-warning mr-2"></i>
+                                    </div>
+                                </figcaption>
+                            </a>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="video-thumbnail">
+                            <a href="#">
+                                <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
+                                <figcaption class="figure-caption figure-caption-flex text-right">
+                                    <p>متن دلخواه وارد شود</p>
+                                    <div class="d-flex align-items-center">
+                                        <p>10</p>
+                                        <i class="bi bi-coin text-warning mr-2"></i>
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="video-thumbnail">
+                            <a href="#">
+                                <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
+                                <figcaption class="figure-caption figure-caption-flex text-right">
+                                    <p>متن دلخواه وارد شود</p>
+                                    <div class="d-flex align-items-center">
+                                        <p>10</p>
+                                        <i class="bi bi-coin text-warning mr-2"></i>
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-12">
+                        <div class="video-thumbnail">
+                            <a href="#">
+                                <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
+                                <figcaption class="figure-caption figure-caption-flex text-right">
+                                    <p>متن دلخواه وارد شود</p>
+                                    <div class="d-flex align-items-center">
+                                        <p>10</p>
+                                        <i class="bi bi-coin text-warning mr-2"></i>
+                                    </div>
+                                </figcaption>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="load-more col-lg-12 col-12 text-center py-4">
+                        <a href="#">
+                            Loar More
+                        </a>
                     </div>
                 </div>
             </div>
@@ -275,24 +294,6 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Header -->
     <script>
-        //  Toggle Menu
-        $(function () {
-            $(".aside-toggle").click(function () {
-                $('aside').toggleClass("open");
-            });
-        });
-
-        // Searrch-Bar
-        $("#inpt_search").on('focus', function () {
-            $(this).parent('label').addClass('active');
-        });
-
-        $("#inpt_search").on('blur', function () {
-            if ($(this).val().length !== 0)
-                $(this).parent('label').removeClass('active');
-        });
-
-
         //  Item-Toggle
         $('.btn-toggle').click(function () {
             $('.toggle-drop').toggle(150);
@@ -301,11 +302,20 @@
         $(document).mouseup(function (e) {
             var container = $(".toggle-drop");
 
+            if (
+                $(e.target).hasClass("btn-toggle") ||
+                $(e.target).parents('.btn-toggle').length > 0
+            )
+                return false
             // If the target of the click isn't the container
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                container.hide();
-            }
+            container.hide();
         });
+
+
+        // Tooltip Sidebar
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
     <!-- Header -->
 

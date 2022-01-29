@@ -90,6 +90,9 @@ li {
 a:hover {
   text-decoration: none;
 }
+p {
+  margin: 0;
+}
 html,
 body {
   margin: 0;
@@ -111,6 +114,7 @@ header {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 350;
 }
 .header-container {
   height: 100%;
@@ -123,7 +127,7 @@ header {
   align-items: center;
 }
 .header-container .right .user-info {
-  font-size: 1.2rem;
+  font-size: .9rem;
   text-align: center;
   margin: 0 0.5rem;
 }
@@ -133,8 +137,8 @@ header {
   margin-left: 8px;
 }
 .header-container .avatar img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+    height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -150,6 +154,7 @@ aside {
   position: fixed;
   right: 0;
   transition: 0.5s;
+  z-index: 333;
 }
 aside.open {
   width: var(--sidebar-open-width);
@@ -168,15 +173,19 @@ aside ul li {
   justify-content: center;
   font-size: 2.5rem;
 }
+aside ul li a span i {
+  color: var(--color-white);
+}
 main .content-page {
   width: calc(100% - var(--sidebar-width));
   background: #fff2;
   height: 100%;
   margin-right: auto;
   transition: 0.2s;
-  padding: 32px;
+  padding: 32px 32px 0;
   text-align: right;
   overflow: auto;
+  z-index: 22;
 }
 main .content-page p {
   line-height: 2.4;
@@ -248,7 +257,6 @@ main .content-page p {
   align-items: center;
 }
 
-
 .btn-toggle {
   position: relative;
   cursor: pointer;
@@ -263,6 +271,7 @@ main .content-page p {
   box-shadow: 0 0 10px 2px #eee;
   padding: 15px;
   border-radius: 10px;
+  z-index: 5555;
 }
 
 .btn-toggle ul {
@@ -270,17 +279,17 @@ main .content-page p {
   flex-direction: column;
   align-items: flex-start;
 }
-.btn-toggle ul li{
+.btn-toggle ul li {
   padding: 15px 0;
 }
-.btn-toggle ul li a{
+.btn-toggle ul li a {
   color: var(--dark-pink);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
-.btn-toggle ul li a:hover{
+.btn-toggle ul li a:hover {
   color: #34283f;
   font-weight: 500;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .toggle-drop ul li a img {
@@ -293,7 +302,8 @@ main .content-page p {
 .swiper {
   width: 100%;
   height: 100%;
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
+  padding: 1rem 2rem 3rem;
 }
 .swiper-wrapper {
   color: var(--dark-pink);
@@ -301,8 +311,6 @@ main .content-page p {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
-
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -316,6 +324,7 @@ main .content-page p {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .swiper-slide img {
@@ -323,5 +332,244 @@ main .content-page p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+  left: 0;
+  right: auto;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+  right: 0;
+  left: auto;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 25px;
+  font-weight: bolder;
+  color: var(--color-white);
+}
+.swiper-pagination-bullet {
+  width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,8px));
+  height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,8px));
+  display: inline-block;
+  border-radius: 50%;
+  background: #fff;
+  opacity: unset;
+}
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: #ff00d4;
 }
 /* Main-Content */
+
+.container-search {
+  height: 30px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.container-search:hover .input {
+  width: 200px;
+  background-color: #fff;
+  border-radius: 30px;
+}
+.container-search .input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
+}
+
+.container-search .btn .bi {
+  color: #fff;
+}
+
+/* START TOOLTIP STYLES */
+[tooltip] {
+  position: relative; /* opinion 1 */
+}
+
+/* Applies to all tooltips */
+[tooltip]::before,
+[tooltip]::after {
+  text-transform: none; /* opinion 2 */
+  font-size: 0.9em; /* opinion 3 */
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+[tooltip]::before {
+  content: "";
+  border: 5px solid transparent; /* opinion 4 */
+  z-index: 1001; /* absurdity 1 */
+}
+[tooltip]::after {
+  content: attr(tooltip); /* magic! */
+
+  /* most of the rest of this is opinion */
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+
+  /* 
+    Let the content set the size of the tooltips 
+    but this will also keep them from being obnoxious
+    */
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 15px;
+  border-radius: 0.3ch;
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+  z-index: 1000; /* absurdity 2 */
+}
+
+/* Make the tooltips respond to hover */
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+[tooltip=""]::before,
+[tooltip=""]::after {
+  display: none !important;
+}
+
+/* FLOW: UP */
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333;
+}
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+  bottom: calc(100% + 5px);
+}
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+  left: 50%;
+  transform: translate(-50%, -0.5em);
+}
+
+/* FLOW: DOWN */
+[tooltip][flow^="down"]::before {
+  top: 100%;
+  border-top-width: 0;
+  border-bottom-color: #333;
+}
+[tooltip][flow^="down"]::after {
+  top: calc(100% + 5px);
+}
+[tooltip][flow^="down"]::before,
+[tooltip][flow^="down"]::after {
+  left: 50%;
+  transform: translate(-50%, 0.5em);
+}
+
+/* FLOW: LEFT */
+[tooltip][flow^="left"]::before {
+  top: 50%;
+  border-right-width: 0;
+  border-left-color: #333;
+  left: calc(0em - 5px);
+  transform: translate(-0.5em, -50%);
+}
+[tooltip][flow^="left"]::after {
+  top: 50%;
+  right: calc(100% + 5px);
+  transform: translate(-0.5em, -50%);
+}
+
+/* FLOW: RIGHT */
+[tooltip][flow^="right"]::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333;
+  right: calc(0em - 5px);
+  transform: translate(0.5em, -50%);
+}
+[tooltip][flow^="right"]::after {
+  top: 50%;
+  left: calc(100% + 5px);
+  transform: translate(0.5em, -50%);
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+  to {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: 0.9;
+    transform: translate(0, -50%);
+  }
+}
+
+/* FX All The Things */
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+[tooltip][flow^="left"]:hover::before,
+[tooltip][flow^="left"]:hover::after,
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+  animation: tooltips-horz 300ms ease-out forwards;
+}
+
+/* figure-caption */
+.figure-caption {
+  background: var(--dark-pink);
+  padding: 12px 8px;
+  border-radius: 0 0 10px 10px;
+  color: var(--color-white);
+}
+.figure-caption-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* figure-caption */
+
+.col-md-6 .swiper-slide {
+  margin: 2rem 0;
+}
+.load-more {
+  display: block;
+  margin: 2rem 0;
+}
+.load-more a{
+  background-color: var(--dark-pink);
+  color: var(--color-white);
+  border-radius: 10px;
+  padding: 10px 25px;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
