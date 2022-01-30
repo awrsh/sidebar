@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!--Start Header Section -->
     <header>
         <div class="header-container">
             <div class="right">
@@ -22,7 +23,7 @@
                 <div class="user-info">
                     آرش زرندی
                     <br />
-                    امتیاز :  <span>200 <i class="bi bi-coin"></i></span>
+                    امتیاز : <span>200 <i class="bi bi-coin"></i></span>
                 </div>
             </div>
             <span><img src="" alt="LOGO"></span>
@@ -74,7 +75,10 @@
             </div>
         </div>
     </header>
+    <!--End Header Section -->
+
     <main>
+        <!--Start Aside Section -->
         <aside>
             <ul>
                 <li>
@@ -97,12 +101,18 @@
                 </li>
             </ul>
         </aside>
+        <!--End Aside Section -->
+
+        <!--Start Content Section -->
         <section class="content-page">
             <div class="asvasvsv">
                 <div class="row">
                     <!-- Swiper -->
                     <div class="swiper mySwiper">
-                        <h3 class="pb-3 font-weight-normal">وبینارها</h3>
+                        <div class="d-flex align-items-center pb-3">
+                            <h3 class="ml-2 font-weight-normal">وبینارها</h3>
+                            <a href="#" class="text-white">(دیدن همه)</a>
+                        </div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <a href="#">
@@ -161,7 +171,10 @@
                 <div class="row">
                     <!-- Swiper -->
                     <div class="swiper mySwiper">
-                        <h3 class="pb-3 font-weight-normal">وبینارها</h3>
+                        <div class="d-flex align-items-center pb-3">
+                            <h3 class="ml-2 font-weight-normal">وبینارها</h3>
+                            <a href="#" class="text-white">(دیدن همه)</a>
+                        </div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" data-caption="caption-1">
                                 <a href="#">
@@ -220,7 +233,7 @@
                 <div class="row">
                     <!-- Swiper -->
                     <div class="col-12">
-                    <h3 class="pb-3 font-weight-normal">وبینارها</h3>
+                        <h3 class="pb-3 font-weight-normal">وبینارها</h3>
                     </div>
                     <div class="col-md-6 col-lg-3 col-12">
                         <div class="video-thumbnail">
@@ -288,11 +301,13 @@
                 </div>
             </div>
         </section>
+        <!--End Content Section -->
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Header -->
+    
+    <!-- Header Scripts -->
     <script>
         //  Item-Toggle
         $('.btn-toggle').click(function () {
@@ -317,7 +332,7 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
-    <!-- Header -->
+    <!-- Header Scripts -->
 
     <!-- Main-Swiper -->
     <script>
