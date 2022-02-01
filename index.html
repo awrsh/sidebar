@@ -13,6 +13,30 @@
 </head>
 
 <body>
+    <section class="loader-section">
+        <div class="loader">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+            <span style="--i:8;"></span>
+            <span style="--i:9;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+        </div>
+    </section>
     <!--Start Header Section -->
     <header>
         <div class="header-container">
@@ -31,31 +55,31 @@
                 <div class="search ml-4 btn-toggle"><i class="bi bi-compass"></i>
                     <div class="toggle-drop">
                         <ul>
-                            <li>
+                            <!-- <li>
                                 <a href="#">
                                     <img src="img/profile.png" class="ml-3" alt="">
                                     آرش زرندی
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
-                                <a href="#">
+                                <a href="#" tooltip="Slide to the left" flow="down">
                                     <i class="bi bi-person"></i>
-                                    پروفایل </a>
+                                </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" tooltip="Slide to the left" flow="down">
                                     <i class="bi bi-gear"></i>
-                                    تنظیمات </a>
+                                </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" tooltip="Slide to the left" flow="down">
                                     <i class="bi bi-star"></i>
-                                    امتیازات </a>
+                                </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="#" tooltip="Slide to the left" flow="down">
                                     <i class="bi bi-power"></i>
-                                    خروج </a>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -235,7 +259,7 @@
                     <div class="col-12">
                         <h3 class="pb-3 font-weight-normal">وبینارها</h3>
                     </div>
-                    <div class="col-md-6 col-lg-3 col-12">
+                    <div class="col-md-6 col-lg-3 video-thumbnail-res">
                         <div class="video-thumbnail">
                             <a href="#">
                                 <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
@@ -249,7 +273,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 col-12">
+                    <div class="col-md-6 col-lg-3 video-thumbnail-res">
                         <div class="video-thumbnail">
                             <a href="#">
                                 <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
@@ -263,7 +287,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 col-12">
+                    <div class="col-md-6 col-lg-3 video-thumbnail-res">
                         <div class="video-thumbnail">
                             <a href="#">
                                 <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
@@ -277,7 +301,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 col-12">
+                    <div class="col-md-6 col-lg-3 video-thumbnail-res">
                         <div class="video-thumbnail">
                             <a href="#">
                                 <img src="img/poster/573d85a3dd0895e97d8b46d9.png" alt="">
@@ -306,7 +330,7 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+
     <!-- Header Scripts -->
     <script>
         //  Item-Toggle
@@ -331,6 +355,19 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+        // Loader
+
+        // setTimeout(function() { 
+        //     $(".load-more").click(function (e) { 
+        //         $('.loader-section').fadeToggle();
+        //     } );
+        //  }, 1500);
+
+            setTimeout(function () { 
+               $('.loader-section').fadeToggle();
+             } , 1500)            
+        
     </script>
     <!-- Header Scripts -->
 
@@ -339,8 +376,10 @@
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
             spaceBetween: 30,
-            slidesPerGroup: 3,
+            slidesPerGroup: 1,
             loop: true,
+            autoplay: true,
+            speed: 200,
             loopFillGroupWithBlank: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -350,7 +389,25 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 40
+                },
+                // when window width is >= 480px
+                570: {
+                    slidesPerView: 2,
+                    spaceBetween: 40
+                },
+                // when window width is >= 767px
+                767: {
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                }
+            }
         });
+
     </script>
     <!-- Main-Swiper -->
 

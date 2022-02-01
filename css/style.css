@@ -287,8 +287,8 @@ main .content-page p {
 
 .btn-toggle ul {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 .btn-toggle ul li {
   padding: 15px 0;
@@ -340,8 +340,6 @@ main .content-page p {
 }
 
 .swiper-slide img {
-  max-width: 370px;
-  max-height: 190px;
   display: block;
   width: 100%;
   height: 100%;
@@ -440,7 +438,7 @@ main .content-page p {
   content: attr(tooltip); /* magic! */
 
   /* most of the rest of this is opinion */
-  font-family: Helvetica, IRANsans,  sans-serif;
+  font-family: Helvetica, IRANsans, sans-serif;
   text-align: center;
 
   /* 
@@ -595,14 +593,12 @@ main .content-page p {
 }
 .video-thumbnail {
   box-shadow: 0 0 10px 1px #eeeeee47;
+  margin: 1rem 0;
 }
 
 .video-thumbnail img {
-  max-height: 140px;
-  max-width: 280px;
   width: 100%;
   border-radius: 10px 10px 0 0;
-
 }
 
 /* Video Section */
@@ -615,12 +611,12 @@ main .content-page p {
   background-color: var(--dark-pink);
   padding: 10px 45px;
   border-radius: 10px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .send-comment:hover {
   color: unset;
   box-shadow: 0 0 10px 1px #eeeeee47;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .Similar-comments {
   width: 100%;
@@ -638,7 +634,7 @@ main .content-page p {
   border-radius: 10px;
 }
 .Similar-video {
-  margin: 5rem 0;
+  margin: 2rem 0;
 }
 .Similar-video .video-thumbnail {
   margin: 1rem 0;
@@ -646,10 +642,6 @@ main .content-page p {
   border-radius: 10px;
 }
 /* Video Section */
-
-
-
-
 
 .circular-menu {
   position: fixed;
@@ -663,7 +655,7 @@ main .content-page p {
   height: 3.5em;
   border-radius: 50%;
   background-color: hsl(4, 98%, 60%);
-  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, .26);
+  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, 0.26);
   color: hsl(0, 0%, 100%);
   text-align: center;
   line-height: 3.9;
@@ -673,16 +665,16 @@ main .content-page p {
   justify-content: center;
 }
 .circular-menu.active .floating-btn {
-  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
+  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, 0.3);
 }
 
 .circular-menu .floating-btn:active {
-  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 .circular-menu .floating-btn i {
   font-size: 1.3em;
-  transition: transform .2s;
+  transition: transform 0.2s;
   height: 100%;
   display: flex;
   align-items: center;
@@ -694,7 +686,7 @@ main .content-page p {
 
 .circular-menu:after {
   display: block;
-  content: ' ';
+  content: " ";
   width: 100vh;
   height: 100vh;
   border-radius: 50%;
@@ -703,12 +695,12 @@ main .content-page p {
   right: 0;
   z-index: -2;
   background-color: hsl(4, 98%, 60%);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .circular-menu.active:after {
   transform: scale3d(5.5, 5.5, 1);
-  transition-timing-function: cubic-bezier(.68, 1.55, .265, 1);
+  transition-timing-function: cubic-bezier(0.68, 1.55, 0.265, 1);
 }
 
 .circular-menu .items-wrapper {
@@ -718,8 +710,8 @@ main .content-page p {
 
 .circular-menu .menu-item {
   position: absolute;
-  top: .2em;
-  right: .2em;
+  top: 0.2em;
+  right: 0.2em;
   z-index: -1;
   display: block;
   text-decoration: none;
@@ -730,12 +722,12 @@ main .content-page p {
   border-radius: 50%;
   text-align: center;
   line-height: 3;
-  background-color: hsla(0, 0%, 0%, .1);
-  transition: transform .3s ease, background .2s ease;
+  background-color: hsla(0, 0%, 0%, 0.1);
+  transition: transform 0.3s ease, background 0.2s ease;
 }
 
 .circular-menu .menu-item:hover {
-  background-color: hsla(0, 0%, 0%, .3);
+  background-color: hsla(0, 0%, 0%, 0.3);
 }
 
 .circular-menu.active .menu-item {
@@ -758,7 +750,6 @@ main .content-page p {
   transform: translate3d(-7em, 1em, 0);
 }
 
-
 /**
  * The other theme for this menu
  */
@@ -774,7 +765,7 @@ main .content-page p {
 }
 
 .circular-menu.circular-menu-left:after {
-  background-color: #34283F;
+  background-color: #34283f;
 }
 
 .circular-menu.circular-menu-left.active .floating-btn i {
@@ -802,10 +793,72 @@ main .content-page p {
   margin-top: 15px;
 }
 
+/* Loader */
+.loader-section {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--dark-pink);
+  animation: animatebg 10s linear infinite;
+  z-index: 9999999;
+}
+@keyframes animatebg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+.loader span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(18deg * var(--i)));
+}
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red, 0 0 40px red,
+    0 0 50px red;
+  animation: animate 2s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+@keyframes animate {
+  0% {
+    transform: scale(1);
+  }
+  80%,100% {
+    transform: scale(0);
+  }
+}
+/* Loader */
 
-@media (min-width : 768px ) {
+@media (min-width: 768px) {
   .circular-menu {
     display: none;
+  }
+  .show-videoAll-res {
+    display: none !important;
+  }
+  .show-videoAll {
+    display: block;
   }
 }
 
@@ -818,7 +871,8 @@ main .content-page p {
   main .content-page {
     width: 100%;
   }
-  .right , .left {
+  .right,
+  .left {
     display: none !important;
   }
   .header-container {
@@ -827,5 +881,21 @@ main .content-page p {
   .bi-list::before {
     font-weight: bold !important;
     font-size: 20px;
+  }
+  .video-thumbnail-res {
+    width: 49%;
+  }
+  .show-videoAll {
+    display: none;
+  }
+  .show-videoAll-res {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .video-thumbnail-res {
+    width: 100%;
   }
 }
