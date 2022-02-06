@@ -917,23 +917,22 @@ MENU STYLES
   --hamburgerWidth: var(--uiMenuHamburgerWidth);
   --hamburgerHeight: var(--uiMenuHamburgerHeight);
   --hamburgerBackgroundColor: var(--menuHamburgerBackgroundColor, #fff);
-
   width: 100%;
-
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  /* flex-direction: column; */
+  /* align-items: center; */
+  align-items: flex-end;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: -45px;
   z-index: var(--menuZindex, 9998);
 }
 
 .menu__nav {
   box-sizing: border-box;
   width: 100%;
-  height: 0;
+  /* height: 0; */
+  height: 100%;
   transition: opacity 0.2s ease-out;
   opacity: 0;
   display: flex;
@@ -954,7 +953,7 @@ MENU STYLES
   width: var(--uiMenuCircleSize);
   height: var(--uiMenuCircleHeight);
   flex: none;
-
+  margin-left: 20px;
   position: relative;
 }
 
@@ -981,6 +980,7 @@ MENU STYLES
   transition: transform 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
     width 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
     height 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+    box-shadow: 0 0 10px 0 #eee;
 }
 
 /* styles of hamburger's animation */
@@ -1015,6 +1015,7 @@ MENU STATES
 
 .menu_activated {
   height: 89%;
+  width: 100%;
 }
 
 .menu_activated .menu__nav {
@@ -1060,7 +1061,7 @@ SETTINGS
 
 :root {
   --colorWhite: #fff;
-  --colorMain: #34283F;
+  --colorMain: var(--dark-pink);
   --menuCircleBackgroundColor: var(--colorMain);
   --menuHamburgerBackgroundColor: var(--colorWhite);
   --menuHaburgerOutlineColor: var(--colorMain);
@@ -1075,8 +1076,6 @@ SETTINGS
 DEMO
 =====
 */
-
- 
 
 .page {
   max-width: 380px;
@@ -1146,7 +1145,7 @@ DEMO
   position: relative;
   display: flex !important;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 .item-menu-res .r-link p {
   line-height: unset;
@@ -1156,16 +1155,20 @@ DEMO
   position: relative;
 }
 .item-menu-res .menu__group::after {
-    content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
   width: 100%;
   border: 1px solid #ffffff29;
 }
+.item-menu-res .menu__group:last-child:after {
+  content: "";
+  border: none;
+}
 
 .item-menu-res .col-6:first-child {
-  border-left:2px solid #ffffff29;
+  border-left: 2px solid #ffffff29;
   width: 100%;
   height: 100%;
   margin: 2rem 0;
