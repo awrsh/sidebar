@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ldbtn.min.css" />
+    <link rel="stylesheet" type="text/css" href="//loading.io/css/loading.css" />
+    <link rel="stylesheet" type="text/css" href="//loading.io/css/loading-btn.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <section class="loader-section">
-        <div class="loader">
+    <!-- <div class="loader">
             <span style="--i:1;"></span>
             <span style="--i:2;"></span>
             <span style="--i:3;"></span>
@@ -35,7 +37,18 @@
             <span style="--i:18;"></span>
             <span style="--i:19;"></span>
             <span style="--i:20;"></span>
-        </div>
+        </div> -->
+    <!-- <div class="loader loader--style2" title="1">
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+            xml:space="preserve">
+            <path fill="#000"
+                d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                    to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+            </path>
+        </svg>
+    </div> -->
     </section>
     <!--Start Header Section -->
     <header>
@@ -62,22 +75,22 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-person"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-gear"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-star"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-power"></i>
                                 </a>
                             </li>
@@ -135,7 +148,9 @@
                     <div class="swiper mySwiper">
                         <div class="d-flex align-items-center pb-3">
                             <h3 class="ml-2 font-weight-normal">وبینارها</h3>
-                            <a href="#" class="text-white">(دیدن همه)</a>
+                            <div class="load-more">
+                                <a href="#" class="text-white p-2">(دیدن همه)</a>
+                            </div>
                         </div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -197,7 +212,9 @@
                     <div class="swiper mySwiper">
                         <div class="d-flex align-items-center pb-3">
                             <h3 class="ml-2 font-weight-normal">وبینارها</h3>
-                            <a href="#" class="text-white">(دیدن همه)</a>
+                            <div class="load-more">
+                                <a href="#" class="text-white p-2">(دیدن همه)</a>
+                            </div>
                         </div>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" data-caption="caption-1">
@@ -317,13 +334,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="load-more col-lg-12 col-12 text-center py-4">
-                        <a href="#">
-                            Loar More
-                        </a>
+                    <div class="mx-4 my-2 font-weight-light">
+                        <div class="mx-4 my-2 font-weight-light">
+                            <div class="btn btn-lg btn-outline-secondary hovering ld-over-full-inverse shadow-sm"
+                                onclick="this.classList.toggle('running')">
+                                Click Me 
+                                <div class="ld ld-ball ld-flip-v" ></div>
+                            </div>
+                            <!-- sample html for this button-->
+                        </div>
                     </div>
-                </div>
-            </div>
         </section>
         <!--End Content Section -->
     </main>
@@ -364,10 +384,10 @@
         //     } );
         //  }, 1500);
 
-            setTimeout(function () { 
-               $('.loader-section').fadeToggle();
-             } , 1500)            
-        
+        setTimeout(function () {
+            $('.loader-section').fadeToggle();
+        }, 1500)
+
     </script>
     <!-- Header Scripts -->
 

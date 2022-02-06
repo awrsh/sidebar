@@ -37,22 +37,22 @@
                                 </a>
                             </li> -->
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-person"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-gear"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-star"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" tooltip="Slide to the left" flow="down">
+                                <a href="#" tooltip="Slide to the left" flow="right">
                                     <i class="bi bi-power"></i>
                                 </a>
                             </li>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            <div id="circularMenu1" class="circular-menu circular-menu-left ">
+            <!-- <div id="circularMenu1" class="circular-menu circular-menu-left ">
 
                 <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
                     <i class="bi bi-list"></i>
@@ -224,8 +224,8 @@
                         <a href="#" class="menu-item bi bi-person"></a>
                         <a href="#" class="menu-item bi bi-search"></a>
                         <a href="#" class="menu-item bi bi-gear"></a>
-                    </div>
-                    <!-- <nav>
+                    </div> -->
+            <!-- <nav>
                         <div class="content-menu-res menu-item">
                             <div class="content-menu-res-up">
                                 <span class="avatar">
@@ -234,38 +234,97 @@
                             </div>
                         </div>
                     </nav> -->
-                </menu>
+            <!-- </menu> -->
+            <!-- </div> -->
+            <div class="menu">
+                <nav class="menu__nav">
+                    <ul class="menu__list r-list">
+                        <li class="menu__group">
+                            <a href="#0" class="menu__link r-link">
+                                <div class="right-menu d-flex align-items-center">
+                                    <span class="avatar">
+                                        <img src="img/profile.png" alt="">
+                                    </span>
+                                    <div class="user-info">
+                                        آرش زرندی
+                                        <br>
+                                        امتیاز : <span>200 <i class="bi bi-coin"></i></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu__group">
+                            <a href="#0" class="menu__link r-link w-100">
+                                <div id="cover">
+                                    <form method="get" action="">
+                                        <div class="tb">
+                                            <input type="text" class="form-control" placeholder="جستجو کنید..."
+                                                required>
+                                        </div>
+                                    </form>
+                                </div>
+                            </a>
+                        </li>
+                        <div class="d-flex align-items-center justify-content-between item-menu-res">
+                            <div class="col-6 w-100">
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link  r-link ">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link r-link">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link r-link ">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="col-6 w-100">
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link r-link ">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link r-link ">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                                <li class="menu__group">
+                                    <a href="#0" class="menu__link r-link ">
+                                        <i class="bi bi-person"></i>
+                                        <p>تست</p>
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
+                <button class="menu__toggle r-button" type="button">
+                    <span class="menu__hamburger m-hamburger">
+                        <span class="m-hamburger__label">
+                            <span class="menu__toggle-hint screen-reader">Open menu</span>
+                        </span>
+                    </span>
+                </button>
             </div>
         </section>
     </main>
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     <!-- Header -->
-    <script>
-        //  Item-Toggle
-        $('.btn-toggle').click(function () {
-            $('.toggle-drop').toggle(150);
-        });
 
-        $(document).mouseup(function (e) {
-            var container = $(".toggle-drop");
-
-            if (
-                $(e.target).hasClass("btn-toggle") ||
-                $(e.target).parents('.btn-toggle').length > 0
-            )
-                return false
-            // If the target of the click isn't the container
-            container.hide();
-        });
-
-
-        // Tooltip Sidebar
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
     <!-- Header -->
 </body>
 

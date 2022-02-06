@@ -277,18 +277,21 @@ main .content-page p {
   position: absolute;
   top: 60px;
   left: 0;
-  width: 300px;
+  width: 50px;
   background-color: #fff;
   box-shadow: 0 0 10px 2px #eee;
   padding: 15px;
   border-radius: 10px;
   z-index: 5555;
+  height: 300px;
 }
 
 .btn-toggle ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
 }
 .btn-toggle ul li {
   padding: 15px 0;
@@ -643,151 +646,6 @@ main .content-page p {
 }
 /* Video Section */
 
-.circular-menu {
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-}
-
-.circular-menu .floating-btn {
-  display: flex;
-  width: 3.5em;
-  height: 3.5em;
-  border-radius: 50%;
-  background-color: hsl(4, 98%, 60%);
-  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, 0.26);
-  color: hsl(0, 0%, 100%);
-  text-align: center;
-  line-height: 3.9;
-  cursor: pointer;
-  outline: 0;
-  align-items: center;
-  justify-content: center;
-}
-.circular-menu.active .floating-btn {
-  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, 0.3);
-}
-
-.circular-menu .floating-btn:active {
-  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.4);
-}
-
-.circular-menu .floating-btn i {
-  font-size: 1.3em;
-  transition: transform 0.2s;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.circular-menu.active .floating-btn i {
-  transform: rotate(-45deg);
-}
-
-.circular-menu:after {
-  display: block;
-  content: " ";
-  width: 100vh;
-  height: 100vh;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -2;
-  background-color: hsl(4, 98%, 60%);
-  transition: all 0.3s ease;
-}
-
-.circular-menu.active:after {
-  transform: scale3d(5.5, 5.5, 1);
-  transition-timing-function: cubic-bezier(0.68, 1.55, 0.265, 1);
-}
-
-.circular-menu .items-wrapper {
-  padding: 0;
-  margin: 0;
-}
-
-.circular-menu .menu-item {
-  position: absolute;
-  top: 0.2em;
-  right: 0.2em;
-  z-index: -1;
-  display: block;
-  text-decoration: none;
-  color: hsl(0, 0%, 100%);
-  font-size: 1em;
-  width: 3em;
-  height: 3em;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 3;
-  background-color: hsla(0, 0%, 0%, 0.1);
-  transition: transform 0.3s ease, background 0.2s ease;
-}
-
-.circular-menu .menu-item:hover {
-  background-color: hsla(0, 0%, 0%, 0.3);
-}
-
-.circular-menu.active .menu-item {
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.circular-menu.active .menu-item:nth-child(1) {
-  transform: translate3d(1em, -7em, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(2) {
-  transform: translate3d(-3.5em, -6.3em, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(3) {
-  transform: translate3d(-6.5em, -3.2em, 0);
-}
-
-.circular-menu.active .menu-item:nth-child(4) {
-  transform: translate3d(-7em, 1em, 0);
-}
-
-/**
- * The other theme for this menu
- */
-
-.circular-menu.circular-menu-left {
-  right: auto;
-  left: 1em;
-}
-
-.circular-menu.circular-menu-left .floating-btn {
-  background-color: hsl(272deg 65% 8%);
-  box-shadow: 0 0 18px 2px #eee;
-}
-
-.circular-menu.circular-menu-left:after {
-  background-color: #34283f;
-}
-
-.circular-menu.circular-menu-left.active .floating-btn i {
-  transform: rotate(90deg);
-}
-
-.circular-menu.circular-menu-left.active .menu-item:nth-child(1) {
-  transform: translate3d(-1em, -7em, 0);
-}
-
-.circular-menu.circular-menu-left.active .menu-item:nth-child(2) {
-  transform: translate3d(3.5em, -6.3em, 0);
-}
-
-.circular-menu.circular-menu-left.active .menu-item:nth-child(3) {
-  transform: translate3d(6.5em, -3.2em, 0);
-}
-
-.circular-menu.circular-menu-left.active .menu-item:nth-child(4) {
-  transform: translate3d(7em, 1em, 0);
-}
-
 .fa-plus,
 .fa-bars {
   margin-top: 15px;
@@ -844,14 +702,15 @@ main .content-page p {
   0% {
     transform: scale(1);
   }
-  80%,100% {
+  80%,
+  100% {
     transform: scale(0);
   }
 }
 /* Loader */
 
 @media (min-width: 768px) {
-  .circular-menu {
+  .menu__toggle {
     display: none;
   }
   .show-videoAll-res {
@@ -898,4 +757,416 @@ main .content-page p {
   .video-thumbnail-res {
     width: 100%;
   }
+}
+
+/*
+!!! This demo is being refactored !!!
+
+-- add auto focus on the first item of the navigation when it is shown
+-- replace .menu:not(.menu_activated) .menu__list{  display: none; } to hidden
+-- use :is pseudo-class to simplify selectors 
+
+*/
+/*
+=====
+DEPENDENCES
+=====
+*/
+
+/* The component will reset button browser styles */
+
+.r-button {
+  --uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
+  --uirButtonPadding: var(
+    --rButtonPadding,
+    var(--rButtonPaddingTop, 0) var(--rButtonPaddingRight, 0)
+      var(--rButtonPaddingBottom, 0) var(--rButtonPaddingLeft, 0)
+  );
+  --uirButtonBorderWidth: var(--rButtonBorderWidth, 0);
+  --uirButtonBorderStyle: var(--rButtonBorderStyle, solid);
+  --uirButtonBorderColor: var(--rButtonBorderColor, currentColor);
+  --uirButtonFontFamily: var(--rButtonFontFamily, inherit);
+  --uirButtonFontSize: var(--rButtonFontSize, inherit);
+  --uirButtonColor: var(--rButtonColor);
+
+  background-color: var(--uirButtonBackgroundColor);
+  padding: var(--uirButtonPadding);
+
+  border-width: var(--uirButtonBorderWidth);
+  border-style: var(--uirButtonBorderStyle);
+  border-color: var(--uirButtonBorderColor);
+
+  cursor: pointer;
+
+  font-family: var(--uirButtonFontFamily);
+  font-size: var(--uirButtonFontSize);
+}
+
+.r-button::-moz-focus-inner,
+.r-button[type="button"]::-moz-focus-inner,
+.r-button[type="reset"]::-moz-focus-inner,
+.r-button[type="submit"]::-moz-focus-inner {
+  /* Remove the inner border and padding in Firefox. */
+
+  border-style: none;
+  padding: 0;
+}
+
+/* The component will reset browser's styles of link */
+
+.r-link {
+  --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+  --uirLinkTextColor: var(--rLinkTextColor);
+  --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+  display: var(--uirLinkDisplay) !important;
+  color: var(--uirLinkTextColor) !important;
+  text-decoration: var(--uirLinkTextDecoration) !important;
+}
+
+/* The component will reset browser's styles of list */
+
+.r-list {
+  --uirListPaddingLeft: var(--rListPaddingLeft, 0);
+  --uirListMarginTop: var(--rListMarginTop, 0);
+  --uirListMarginBottom: var(--rListMarginBottom, 0);
+  --uirListListStyle: var(--rListListStyle, none);
+
+  padding-left: var(--uirListPaddingLeft) !important;
+  margin-top: var(--uirListMarginTop) !important;
+  margin-bottom: var(--uirListMarginBottom) !important;
+  list-style: var(--uirListListStyle) !important;
+}
+
+/* Basic styles of the hamburger component */
+
+.m-hamburger {
+  --uiHamburgerThickness: var(--hamburgerThickness, 4px);
+
+  display: var(--hamburgerDisplay, inline-flex);
+  width: var(--hamburgerWidth, 28px);
+  height: var(--hamburgerHeight, 20px);
+
+  position: relative;
+}
+
+.m-hamburger::before,
+.m-hamburger::after,
+.m-hamburger__label {
+  width: 100%;
+  height: var(--uiHamburgerThickness);
+  border-radius: var(--hamburgerBorderRadius, 5px);
+  background-color: var(--hamburgerBackgroundColor, currentColor);
+
+  position: absolute;
+  left: 0;
+}
+
+.m-hamburger::before,
+.m-hamburger::after {
+  content: "";
+}
+
+.m-hamburger::before {
+  top: 0;
+}
+
+.m-hamburger::after {
+  bottom: 0;
+}
+
+.m-hamburger__label {
+  /* The calculation of middle hamburger button line position */
+
+  top: calc(50% - calc(var(--uiHamburgerThickness) / 2));
+}
+
+/* helper to hide elements that are available only for screen readers. */
+
+.screen-reader {
+  width: var(--screenReaderWidth, 1px) !important;
+  height: var(--screenReaderHeight, 1px) !important;
+  padding: var(--screenReaderPadding, 0) !important;
+  border: var(--screenReaderBorder, none) !important;
+
+  position: var(--screenReaderPosition, absolute) !important;
+  clip: var(--screenReaderClip, rect(1px, 1px, 1px, 1px)) !important;
+  overflow: var(--screenReaderOverflow, hidden) !important;
+}
+
+/*
+=====
+MENU STYLES
+=====
+*/
+
+.menu {
+  --uiMenuCircleSize: var(--menuCircleSize, 6.25rem);
+  --uiMenuCircleOffset: var(--menuCircleOffset, 1rem);
+  --uiMenuCircleHeight: calc(var(--uiMenuCircleSize) / 2);
+  --uiMenuCircleBackgroundColor: var(--menuCircleBackgroundColor, currentColor);
+
+  --uiMenuHamburgerWidth: var(--menuHamburgerWidth, 1.75rem);
+  --uiMenuHamburgerHeight: var(--menuHamburgerHeight, 1.25rem);
+
+  --rButtonPaddingTop: calc(
+    var(--uiMenuCircleHeight) - var(--uiMenuHamburgerHeight) -
+      var(--uiMenuCircleOffset)
+  );
+
+  --hamburgerWidth: var(--uiMenuHamburgerWidth);
+  --hamburgerHeight: var(--uiMenuHamburgerHeight);
+  --hamburgerBackgroundColor: var(--menuHamburgerBackgroundColor, #fff);
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: var(--menuZindex, 9998);
+}
+
+.menu__nav {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+  display: flex;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.menu__list {
+  width: 100%;
+  max-height: 100%;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu__toggle {
+  box-sizing: border-box;
+  width: var(--uiMenuCircleSize);
+  height: var(--uiMenuCircleHeight);
+  flex: none;
+
+  position: relative;
+}
+
+.menu__toggle::before {
+  /*
+  1. The font-size property is used to simplify calculations of the element's sizes and position
+  2. The negative value for the bottom property need for hiding half of circle. 
+  */
+
+  content: "";
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiMenuCircleSize); /* 1 */
+
+  background-color: var(--uiMenuCircleBackgroundColor);
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: -0.5em; /* 2 */
+  left: calc(50% - 0.5em);
+  z-index: -1;
+
+  will-change: width, height;
+  transition: transform 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+    width 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+    height 0.25s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+}
+
+/* styles of hamburger's animation */
+
+.m-hamburger::before,
+.m-hamburger::after,
+.m-hamburger__label {
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+}
+
+.m-hamburger::before,
+.m-hamburger::after {
+  transition-property: transform;
+}
+
+.m-hamburger__label {
+  transition-property: transform, opacity;
+}
+
+/*
+=====
+MENU STATES
+=====
+*/
+
+.menu__toggle:focus {
+  outline: var(--menuHaburgerOutlineOWidth, 2px) solid
+    var(--menuHaburgerOutlineColor);
+  outline-offset: var(--menuHaburgerOutlineOffset, 5px);
+}
+
+.menu_activated {
+  height: 89%;
+}
+
+.menu_activated .menu__nav {
+  flex-grow: 1;
+  opacity: 1;
+
+  will-change: opacity;
+  transition-duration: 0.2s;
+  transition-delay: 0.3s;
+}
+
+.menu_activated .menu__toggle::before {
+  width: 100vmax;
+  height: 100vmax;
+  transform: translate3d(-50vh, -50vh, 0) scale(5);
+  transition-duration: 1s;
+}
+
+.menu:not(.menu_activated) .menu__list {
+  display: none;
+}
+
+.menu_activated .m-hamburger::before {
+  top: 50%;
+  transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+
+.menu_activated .m-hamburger::after {
+  transform: translate3d(0, -50%, 0) rotate(135deg);
+  top: 50%;
+}
+
+.menu_activated .m-hamburger__label {
+  transform: rotate(-45deg) translate3d(-0.285em, -0.3em, 0);
+  opacity: 0;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+
+:root {
+  --colorWhite: #fff;
+  --colorMain: #34283F;
+  --menuCircleBackgroundColor: var(--colorMain);
+  --menuHamburgerBackgroundColor: var(--colorWhite);
+  --menuHaburgerOutlineColor: var(--colorMain);
+}
+
+.menu_activated {
+  --menuHaburgerOutlineColor: var(--colorWhite);
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+ 
+
+.page {
+  max-width: 380px;
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.page__name {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page__hint {
+  display: block;
+  line-height: 1.45;
+  margin-top: 1rem;
+}
+
+.menu__group {
+  --rLinkTextColor: var(--colorWhite);
+  text-align: center;
+  padding: 0.5rem 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.linktr {
+  order: -1;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.linktr__goal {
+  background-color: rgb(209, 246, 255);
+  color: rgb(8, 49, 112);
+  box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+  border-radius: 2rem;
+  padding: 0.5rem 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .linktr {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+.right-menu img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.right-menu .user-info {
+  font-size: 14px;
+}
+
+#cover {
+  width: 50%;
+  margin: auto;
+}
+.item-menu-res .r-link {
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center; 
+}
+.item-menu-res .r-link p {
+  line-height: unset;
+  font-size: 14px;
+}
+.item-menu-res .menu__group {
+  position: relative;
+}
+.item-menu-res .menu__group::after {
+    content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  border: 1px solid #ffffff29;
+}
+
+.item-menu-res .col-6:first-child {
+  border-left:2px solid #ffffff29;
+  width: 100%;
+  height: 100%;
+  margin: 2rem 0;
 }
